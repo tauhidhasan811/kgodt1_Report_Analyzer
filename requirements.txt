@@ -1,0 +1,12 @@
+dotenv
+fastapi[standard]
+langchain
+langchain-google-genai
+pymupdf 
+pillow 
+google-generativeai 
+python-dotenv
+fastapi
+uvicorn
+python-multipart
+python-docx
