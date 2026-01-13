@@ -36,10 +36,10 @@ out_temp = {
         },
 
         "scores": {
-            "documentation_quality": 0,
-            "consistency_score": 0,
-            "compliance_score": 0,
-            "risk_level": "high | medium | low"
+            "documentation_quality": "25 to 95",
+            "consistency_score": "25 to 95",
+            "compliance_score": "25 to 95",
+            "risk_level": "high (when score less then 40)| medium (when score greter then 40 and less then 75)| low (when score greter then 75)"
         }
     }
 
