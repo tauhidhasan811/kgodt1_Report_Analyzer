@@ -1,4 +1,4 @@
-from asset.core.output_temp import out_temp
+from asset.core.output_temp import out_temp, score_rules
 from langchain_core.prompts import PromptTemplate
 from langchain.messages import SystemMessage, HumanMessage
 
@@ -15,6 +15,7 @@ def GenPrompt(report_data):
             "Do NOT include clinical terminology or implementation details. "
             "Follow the output structure STRICTLY and return ONLY valid JSON. "
             "And When calculate scores do not give absulut 0. cause report have insufficient data not dangares"
+            f"And try to follow those rule :{score_rules}"
             "Do not include explanations, comments, or extra text, or do not need betify like ```json ```."
             f"Output structure: {out_temp}"
         )
@@ -22,7 +23,7 @@ def GenPrompt(report_data):
     print(out_temp)
 
     hum_message = HumanMessage(
-        content=f"Report: {report_data}"
+        content=f"Report Data: {report_data}"
     )
 
     tempt = PromptTemplate(

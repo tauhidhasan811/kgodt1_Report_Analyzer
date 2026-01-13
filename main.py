@@ -12,7 +12,9 @@ from asset.service.document_extractor import extract_document
 
 load_dotenv()
 app = FastAPI()
+#model = GenModel(model_name='gemini-2.5-flash')
 model = GenModel(model_name='gemini-2.5-flash')
+
 
 @app.post('/api/process-document/')
 async def process_document(file: UploadFile = File(...)):
@@ -36,7 +38,7 @@ async def process_document(file: UploadFile = File(...)):
             print('=' *100)
         message = model.invoke(prompt).content
         message = CleanData(message)
-        print(message)
+        #print(message)
 
         response = JSONResponse(
             status_code=200,
