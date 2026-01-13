@@ -45,7 +45,6 @@ out_temp = {
 
 score_rules = """
     DETERMINISTIC SCORING RULES
-
     Documentation Quality (45–90):
     Base 60
     +5 each if present: session_type, presenting_concerns, interventions_used,
