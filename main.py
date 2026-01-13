@@ -15,6 +15,9 @@ app = FastAPI()
 #model = GenModel(model_name='gemini-2.5-flash')
 model = GenModel(model_name='gemini-2.5-flash')
 
+print('x' * 100)
+print('Api key is : ', os.environ.get('GOOGLE_API_KEY'))
+print('x' * 100)
 
 @app.post('/api/process-document/')
 async def process_document(file: UploadFile = File(...)):
