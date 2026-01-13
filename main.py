@@ -22,7 +22,6 @@ print('x' * 100)
 @app.post('/api/process-document/')
 async def process_document(file: UploadFile = File(...)):
     try:
-
         with tempfile.TemporaryDirectory() as temp_dir:
             file_name = file.filename
             file_path = os.path.join(temp_dir, file_name)

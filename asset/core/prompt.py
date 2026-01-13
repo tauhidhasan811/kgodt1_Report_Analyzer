@@ -15,7 +15,7 @@ def GenPrompt(report_data):
             "Do NOT include clinical terminology or implementation details. "
             "Follow the output structure STRICTLY and return ONLY valid JSON. "
             "And When calculate scores do not give absulut 0. cause report have insufficient data not dangares"
-            f"And try to follow those rule :{score_rules}"
+            #f"And try to follow those rule :{score_rules}"
             "Do not include explanations, comments, or extra text, or do not need betify like ```json ```."
             f"Output structure: {out_temp}"
         )
