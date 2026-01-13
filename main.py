@@ -31,12 +31,12 @@ async def process_document(file: UploadFile = File(...)):
 
             doc_text = extract_document(file_path=file_path)
             print("---Extracted Text start ----")
-            print(doc_text)
+            #print(doc_text)
             print("---Extracted Text end ----")
             prompt = GenPrompt(report_data=doc_text)
 
             print('=' *100)
-            print(prompt)
+            #print(prompt)
             print('=' *100)
         message = model.invoke(prompt).content
         message = CleanData(message)
