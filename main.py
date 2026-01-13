@@ -5,15 +5,19 @@ import tempfile
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
-from asset.service.gen_model import GenModel
+from asset.config.gen_model import GenModel
+from asset.config.openai_model import LoadGPT
 from asset.core.prompt import GenPrompt
 from asset.core.clear_data import CleanData
 from asset.service.document_extractor import extract_document
+from asset.core.calculate_score import calculate_scores
+from asset.core.extract_values import extract_values
 
 load_dotenv()
 app = FastAPI()
 #model = GenModel(model_name='gemini-2.5-flash')
-model = GenModel(model_name='gemini-2.5-flash')
+#model = GenModel(model_name='gemini-2.5-flash')
+model = LoadGPT(model_name='gpt-4.1-2025-04-14')
 
 print('x' * 100)
 print('Api key is : ', os.environ.get('GOOGLE_API_KEY'))
@@ -41,6 +45,12 @@ async def process_document(file: UploadFile = File(...)):
         message = model.invoke(prompt).content
         message = CleanData(message)
         #print(message)
+        result = {}
+        result_text = extract_values(message)
+        result_scores = calculate_scores(message)
+        result.update(result_text)
+        result.update(result_scores)
+        message = result
 
         response = JSONResponse(
             status_code=200,

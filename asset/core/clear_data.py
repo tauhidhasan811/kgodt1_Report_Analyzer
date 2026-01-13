@@ -1,4 +1,5 @@
 import re
+import ast
 
 def CleanData(text):
     cleaned = text.replace("\\", "")
@@ -12,4 +13,5 @@ def CleanData(text):
     cleaned = re.sub(r'\s+', ' ', cleaned).strip()
 
     print(cleaned)
+    cleaned = ast.literal_eval(cleaned)
     return cleaned
