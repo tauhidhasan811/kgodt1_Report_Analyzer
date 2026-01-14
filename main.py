@@ -40,7 +40,7 @@ async def process_document(file: UploadFile = File(...)):
             print('=' *100)
         message = model.invoke(prompt).content
         message = CleanData(message)
-        #print(message)
+        print(message)
 
         response = JSONResponse(
             status_code=200,
