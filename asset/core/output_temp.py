@@ -42,7 +42,8 @@
             "compliance_score": "25 to 95",
             "risk_level": "high (when score less then 40)| medium (when score greter then 40 and less then 75)| low (when score greter then 75)"
         }
-    }"""
+    }
+"""
 
 out_temp = {
     "summary": {
@@ -69,7 +70,7 @@ out_temp = {
 
     "pdpm_alignment": {
         "summary": {"value": "string", "score": "0–0.5"},   
-        "notes": {"value": "string", "score": "0–5"}     
+        "notes": {"value": "string", "score": "0–0.5"}     
     },
 
     "consistency_checks": {

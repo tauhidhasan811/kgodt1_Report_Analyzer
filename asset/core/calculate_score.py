@@ -36,7 +36,9 @@ def calculate_consistency_score(data):
         to_number(checks["therapy_conflicts"]["score"]),
         to_number(checks["pain_conflicts"]["score"]),
         to_number(checks["diagnosis_alignment"]["score"])
-    ]) * 20
+    ]) 
+
+    consistency_score = consistency_score * 20
 
     return round(consistency_score, 2)
 
